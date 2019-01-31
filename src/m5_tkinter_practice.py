@@ -21,7 +21,15 @@ def main():
     frame.grid()
     button = ttk.Button(frame, text='Hello')
     myentrybox = ttk.Entry(frame)
+    myentrybox2 = ttk.Entry(frame)
     myentrybox.grid()
+    myentrybox2.grid()
+    printentrybutton = ttk.Button(frame, text='PrintEntry')
+    printentrybutton2 = ttk.Button(frame, text='PrintEntry')
+    printentrybutton['command'] = (lambda: print_contents(myentrybox))
+    printentrybutton2['command'] = (lambda: print_contents(myentrybox2))
+    printentrybutton.grid()
+    printentrybutton2.grid()
     button['command'] = (lambda: print_hello())
     button.grid()
 
@@ -30,7 +38,10 @@ def main():
 
     def print_contents(entrybox):
         contents = entrybox.get()
-        print()
+        if contents == 'ok':
+            print('Hello')
+        else:
+            print('Goodbye')
     # -------------------------------------------------------------------------
     # DONE: 3. After reading and understanding the m2e module,
     #   ** put a Frame on the window. **
@@ -48,7 +59,7 @@ def main():
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 6. After reading and understanding the m4e module,
+    # DONE: 6. After reading and understanding the m4e module,
     #   -- Put an Entry box on the Frame.
     #   -- Put a second Button on the Frame.
     #   -- Make this new Button, when pressed, print "Hello"
@@ -57,7 +68,7 @@ def main():
     # -------------------------------------------------------------------------
 
     # -------------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
